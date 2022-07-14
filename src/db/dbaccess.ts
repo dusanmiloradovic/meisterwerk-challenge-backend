@@ -38,8 +38,6 @@ export function getAllEvents(): Promise<EventData[]> {
 
 export function getEvents(eventRange: EventDataRange): Promise<EventData[]> {
   return new Promise((resolve, reject) => {
-    console.log(eventRange.fromDate.getTime());
-    console.log(eventRange.toDate.getTime());
     db.all(GET_EVENTS_RANGE, [eventRange.fromDate.getTime(), eventRange.toDate.getTime()], function (err, rows) {
       if (err) {
         return reject(err);

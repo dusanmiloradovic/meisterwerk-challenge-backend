@@ -24,11 +24,6 @@ app.get('/all-events', async (_, res) => {
 
 app.get('/get-events/:from/:to', async (req, res) => {
   try {
-    console.log(req.params.from);
-    console.log(req.params.to);
-    console.log(new Date(req.params.from));
-    console.log(new Date(req.params.to));
-
     const queryRange: EventDataRange = { fromDate: new Date(req.params.from), toDate: new Date(req.params.to) };
     const events = await getAllEvents(queryRange);
     return res.json(events);
